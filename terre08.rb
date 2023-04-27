@@ -2,20 +2,20 @@
 
 def calcul_puissance (nombre, exposant)
     if exposant < 0
-        puts 'error'#vérifier si exposant négatif
+        puts 'exposant inférieur à 0' #vérifier si exposant négatif
     else
         result = 1
         exposant.times do |i|
             result = result * nombre
         end
+        puts result
     end
-    puts result
 end
 
 
 def verifyArg (nombre, exposant)
     if  nombre != nil and exposant!= nil #vérifier si arg présent
-        if nombre.scan(/^\d+$/).any? && exposant.scan(/^\d+$/).any? #vérifier si lettre ou pas
+        if nombre.scan(/^\-?\d+\.?\d*$/).any? && exposant.scan(/^\-?\d+\.?\d*$/).any? #vérifier si lettre ou pas
             x = nombre.to_i
             y = exposant.to_i
             calcul_puissance(x,y)
