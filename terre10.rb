@@ -5,17 +5,25 @@ def verifyIfNumberFirst (number)
     if x < 0
         puts "Can't be inferior to 0"
     elsif x < 3 
-        puts " #{x} n'est pas un nombre premier"
+        puts "#{x} n'est pas un nombre premier"
+    elsif x == 3
+        puts "#{x} est un nombre premier"
     else
-        i = 3
-        while i < Math.sqrt(x)
+        i = 2
+        result = ''
+        while i <= Math.sqrt(x)
             if x % i == 0
-                puts " #{x} n'est pas un nombre premier"
+                result = 'false'
                 break
-            else 
-                puts " #{x} est un nombre premier"
+            else
                 i += 1
+                result = 'true'
             end
+        end
+        if result == 'false'
+            puts "#{x} n'est pas un nombre premier"
+        else
+            puts "#{x} est un nombre premier"
         end
     end
 end
@@ -34,9 +42,3 @@ end
 
 
 verifyArgument(ARGV[0])
-
-# x = Math.sqrt(9)
-# puts x
-
-# x = ''
-# puts x.empty?
