@@ -3,7 +3,7 @@
 
 def findMiddleBro(element)
     x = nil
-    if element[0] == element[1] || element[1] == element[2] || element[2] == element[0]
+    if element[0] == element[1] || element[1] == element[2] || element[2] == element[0] #si 2 arguments égaux alors false
         puts 'error'
     else
         if element[0] < element[1]
