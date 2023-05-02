@@ -7,11 +7,21 @@ def transformTime(element)
         puts 'error'
     else
         if element.gsub(/[^a-zA-Z]/, '') == 'AM'
-            newTime = "#{hour[0]}:#{hour[1]}"
-            puts newTime
+            if hour[0].to_i == 12
+                newTime = "0#{hour[0].to_i - 12}:#{hour[1][0,2]}"
+                puts newTime
+            else
+                newTime = "#{hour[0]}:#{hour[1][0,2]}"
+                puts newTime
+            end
         elsif element.gsub(/[^a-zA-Z]/, '') == 'PM'
-            newTime = "#{hour[0]}:#{hour[1]}"
-            puts newTime
+            if hour[0].to_i == 12
+                newTime = "#{hour[0].to_i}:#{hour[1][0,2]}"
+                puts newTime
+            else
+                newTime = "#{hour[0].to_i + 12}:#{hour[1][0,2]}"
+                puts newTime
+            end
         else
             puts 'error'
         end
